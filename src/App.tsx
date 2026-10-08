@@ -9,6 +9,7 @@ import { CategorySelectionView } from './components/CategorySelectionView';
 import { CategoryDetailView } from './components/CategoryDetailView';
 import { DataEditorModal } from './components/DataEditorModal';
 import { ImageModal } from './components/ImageModal';
+import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 
 const STORAGE_KEY = 'sky_profile_hen_v8';
 
@@ -198,6 +199,9 @@ export default function App() {
         caption={previewImage.caption}
         onClose={handleCloseImage}
       />
+
+      {/* Continuous Loop Background Music Player */}
+      <BackgroundMusicPlayer />
     </div>
   );
 }
