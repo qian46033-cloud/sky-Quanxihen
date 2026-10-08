@@ -8,8 +8,8 @@ interface WelcomeViewProps {
   onUpdateBannerImage?: (url: string) => void;
 }
 
-const LILY_AVATAR = "/src/assets/images/white_lily_avatar_1791441945185.jpg";
-const DEFAULT_CROWS_BANNER = "/src/assets/images/user_two_crows_banner_1791450884732.jpg";
+const LILY_AVATAR = "./white_lily_avatar_1791441945185.jpg";
+const DEFAULT_CROWS_BANNER = "./user_two_crows_banner_1791450884732.jpg";
 
 export const WelcomeView: React.FC<WelcomeViewProps> = ({ 
   data, 

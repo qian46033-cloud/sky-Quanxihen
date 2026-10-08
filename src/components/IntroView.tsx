@@ -21,7 +21,7 @@ interface IntroViewProps {
   onUpdateInfoImage?: (url: string) => void;
 }
 
-const DEFAULT_LILIES_IMAGE = "/src/assets/images/lilies_black_background_1791443257214.jpg";
+const DEFAULT_LILIES_IMAGE = "./lilies_black_background_1791443257214.jpg";
 
 export const IntroView: React.FC<IntroViewProps> = ({
   data,
