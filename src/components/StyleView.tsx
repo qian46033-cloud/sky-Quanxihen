@@ -72,38 +72,38 @@ export const StyleView: React.FC<StyleViewProps> = ({
       <div className="flex items-center justify-between">
         <button
           onClick={onPrev}
-          className="flex items-center gap-1.5 text-xs font-mono font-light text-neutral-600 hover:text-neutral-900 bg-white hover:bg-neutral-50 px-3 py-1.5 rounded-lg border border-neutral-200 transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 text-xs font-mono font-light text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>BACK / 返回个人信息</span>
         </button>
 
-        <span className="text-xs font-mono text-neutral-400 font-light">
+        <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500 font-light">
           STEP 03 / 04 · MY STYLE
         </span>
       </div>
 
       {/* Main Card: MY STYLE in Minimalist Black/White/Gray */}
-      <div className="bg-white rounded-2xl border border-neutral-200 shadow-2xs overflow-hidden">
+      <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-2xs overflow-hidden transition-colors duration-200">
         
         {/* Page Title in English */}
-        <div className="px-5 sm:px-6 pt-5 pb-3 border-b border-neutral-100 flex items-center justify-between">
+        <div className="px-5 sm:px-6 pt-5 pb-3 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between transition-colors">
           <div>
-            <span className="text-[10px] font-mono font-light tracking-widest text-neutral-400 uppercase">
+            <span className="text-[10px] font-mono font-light tracking-widest text-neutral-400 dark:text-neutral-500 uppercase">
               PAGE 03
             </span>
-            <h1 className="text-lg sm:text-xl font-normal text-neutral-900 tracking-wider uppercase font-sans">
+            <h1 className="text-lg sm:text-xl font-normal text-neutral-900 dark:text-white tracking-wider uppercase font-sans transition-colors">
               MY STYLE
             </h1>
           </div>
-          <span className="text-[10px] font-mono font-light px-2 py-0.5 rounded bg-neutral-900 text-white uppercase">
+          <span className="text-[10px] font-mono font-light px-2 py-0.5 rounded bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 uppercase transition-colors">
             CHARACTERISTICS
           </span>
         </div>
 
         {/* Style Declaration Chips */}
-        <div className="p-5 sm:p-6 border-b border-neutral-100 bg-neutral-50 text-left">
-          <div className="text-[10px] font-mono text-neutral-400 font-light uppercase tracking-widest mb-3">
+        <div className="p-5 sm:px-6 border-b border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/40 text-left transition-colors">
+          <div className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500 font-light uppercase tracking-widest mb-3">
             CORE ESSENCE / 风格宣言
           </div>
 
@@ -112,9 +112,9 @@ export const StyleView: React.FC<StyleViewProps> = ({
             {styleKeywords.map((tag, i) => (
               <div
                 key={i}
-                className="text-xs font-light px-3 py-2 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-800 flex items-center gap-1.5"
+                className="text-xs font-light px-3 py-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 flex items-center gap-1.5 transition-colors"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white transition-colors"></span>
                 <span>{tag}</span>
               </div>
             ))}
@@ -123,20 +123,20 @@ export const StyleView: React.FC<StyleViewProps> = ({
 
         {/* 仅保留场景模拟板块 */}
         <div className="p-5 sm:p-6 space-y-3.5 text-left">
-          <div className="text-[10px] font-mono font-light text-neutral-400 uppercase tracking-widest mb-1">
+          <div className="text-[10px] font-mono font-light text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mb-1">
             SCENARIO SIMULATION / 场景模拟
           </div>
 
           {scenarios.map((sc) => (
             <div
               key={sc.number}
-              className="rounded-xl border border-neutral-200 p-3.5 sm:p-4 bg-neutral-50/70 space-y-2.5 text-xs font-light text-left"
+              className="rounded-xl border border-neutral-200 dark:border-neutral-800 p-3.5 sm:p-4 bg-neutral-50/70 dark:bg-neutral-800/40 space-y-2.5 text-xs font-light text-left transition-colors"
             >
-              <div className="flex items-center justify-between text-neutral-500 font-mono">
-                <span className="text-neutral-900 font-normal">
+              <div className="flex items-center justify-between text-neutral-500 dark:text-neutral-400 font-mono">
+                <span className="text-neutral-900 dark:text-white font-normal">
                   SCENARIO {sc.number} · {sc.styleName}
                 </span>
-                <span className="text-[10px] tracking-wider text-neutral-400">
+                <span className="text-[10px] tracking-wider text-neutral-400 dark:text-neutral-500">
                   {sc.tagEn}
                 </span>
               </div>
@@ -145,10 +145,10 @@ export const StyleView: React.FC<StyleViewProps> = ({
                 <img
                   src={data.avatarUrl}
                   alt={data.nickname}
-                  className="w-7 h-7 rounded-full object-cover bg-neutral-950 border border-neutral-200 shrink-0 mt-0.5"
+                  className="w-7 h-7 rounded-full object-cover bg-neutral-950 border border-neutral-200 dark:border-neutral-700 shrink-0 mt-0.5 transition-colors"
                   referrerPolicy="no-referrer"
                 />
-                <div className="bg-neutral-900 text-white rounded-xl rounded-tl-xs px-3.5 py-2.5 max-w-[92%] leading-relaxed font-light text-xs sm:text-[13px]">
+                <div className="bg-neutral-900 dark:bg-neutral-800 text-white dark:text-neutral-100 border border-transparent dark:border-neutral-700/60 rounded-xl rounded-tl-xs px-3.5 py-2.5 max-w-[92%] leading-relaxed font-light text-xs sm:text-[13px] transition-colors">
                   “{sc.quote}”
                 </div>
               </div>
@@ -157,12 +157,12 @@ export const StyleView: React.FC<StyleViewProps> = ({
         </div>
 
         {/* Footer info banner */}
-        <div className="px-5 sm:px-6 py-3 bg-neutral-50 border-t border-neutral-100 flex items-center justify-between text-xs font-mono font-light text-neutral-500">
+        <div className="px-5 sm:px-6 py-3 bg-neutral-50 dark:bg-neutral-800/40 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-xs font-mono font-light text-neutral-500 dark:text-neutral-400 transition-colors">
           <span className="flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-neutral-600" />
+            <ShieldCheck className="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-400" />
             CLEAR BOUNDARIES & PROTOCOL
           </span>
-          <span className="text-neutral-400">PROCEED TO CATEGORIES</span>
+          <span className="text-neutral-400 dark:text-neutral-500">PROCEED TO CATEGORIES</span>
         </div>
 
       </div>
@@ -171,7 +171,7 @@ export const StyleView: React.FC<StyleViewProps> = ({
       <div className="flex items-center justify-between pt-2">
         <button
           onClick={onPrev}
-          className="px-4 py-2.5 rounded-xl border border-neutral-300 text-neutral-700 hover:bg-neutral-100 font-mono font-light text-xs sm:text-sm flex items-center gap-1.5 transition-colors cursor-pointer"
+          className="px-4 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-mono font-light text-xs sm:text-sm flex items-center gap-1.5 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>PREV / 上一步</span>
@@ -179,7 +179,7 @@ export const StyleView: React.FC<StyleViewProps> = ({
 
         <button
           onClick={onNext}
-          className="px-6 py-2.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white font-mono font-light text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer group active:scale-[0.98]"
+          className="px-6 py-2.5 rounded-xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 font-mono font-light text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer group active:scale-[0.98]"
         >
           <span>NEXT: CATEGORIES / 查看栏目</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

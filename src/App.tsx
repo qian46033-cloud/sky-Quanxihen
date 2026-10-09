@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Step, CategoryKey, ProfileData } from './types';
 import { defaultProfileData } from './data/defaultData';
 import { Header } from './components/Header';
@@ -12,10 +12,41 @@ import { ImageModal } from './components/ImageModal';
 import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 
 const STORAGE_KEY = 'sky_profile_hen_v8';
+const THEME_KEY = 'sky_profile_theme_mode';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState<Step>('welcome');
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('rules');
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    try {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem(THEME_KEY, 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem(THEME_KEY, 'light');
+      }
+    } catch {
+      // Ignore
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev);
+  };
+
   const [profileData, setProfileData] = useState<ProfileData>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -115,13 +146,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8f9fa] text-neutral-900 font-sans selection:bg-neutral-800 selection:text-white">
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
+      isDarkMode 
+        ? 'dark bg-[#0c0d0e] text-neutral-100 selection:bg-neutral-200 selection:text-neutral-900' 
+        : 'bg-[#f8f9fa] text-neutral-900 selection:bg-neutral-800 selection:text-white'
+    }`}>
       {/* Minimalist Monochrome Header */}
       <Header
         currentStep={currentStep}
         onNavigate={handleDirectNavigation}
         onOpenEditor={() => setIsEditorOpen(true)}
         siteTitle={profileData.siteTitle}
+        isDarkMode={isDarkMode}
+        onToggleTheme={toggleTheme}
       />
 
       {/* Main Content Area based on current step */}
@@ -130,7 +167,6 @@ export default function App() {
           <WelcomeView
             data={profileData}
             onStart={handleStartFromWelcome}
-            onUpdateBannerImage={handleUpdateBannerImage}
           />
         )}
 
@@ -140,7 +176,6 @@ export default function App() {
             onNext={handleNextFromIntro}
             onPrev={handlePrevFromIntro}
             onImageClick={handleOpenImage}
-            onUpdateInfoImage={handleUpdateInfoImage}
           />
         )}
 
@@ -172,13 +207,13 @@ export default function App() {
       </main>
 
       {/* Minimalist Monochrome Footer */}
-      <footer className="mt-auto py-6 border-t border-neutral-200/90 bg-white text-center text-xs text-neutral-400 font-mono">
+      <footer className="mt-auto py-6 border-t border-neutral-200/90 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/90 text-center text-xs text-neutral-400 dark:text-neutral-500 font-mono transition-colors">
         <div className="max-w-2xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
-            <span>{profileData.siteTitle} · 3L ARCHIVE</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white transition-colors"></span>
+            <span className="text-neutral-700 dark:text-neutral-300">{profileData.siteTitle} · 3L ARCHIVE</span>
           </div>
-          <div className="text-[11px] text-neutral-400 tracking-wider uppercase">
+          <div className="text-[11px] text-neutral-400 dark:text-neutral-500 tracking-wider uppercase">
             BLACK & WHITE MINIMALISM
           </div>
         </div>

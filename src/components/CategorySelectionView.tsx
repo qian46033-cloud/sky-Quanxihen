@@ -54,28 +54,28 @@ export const CategorySelectionView: React.FC<CategorySelectionViewProps> = ({
       <div className="flex items-center justify-between">
         <button
           onClick={onPrev}
-          className="flex items-center gap-1.5 text-xs font-mono font-light text-neutral-600 hover:text-neutral-900 bg-white hover:bg-neutral-50 px-3 py-1.5 rounded-lg border border-neutral-200 transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 text-xs font-mono font-light text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>BACK / 返回我的风格</span>
         </button>
 
-        <span className="text-xs font-mono font-light text-neutral-400">
+        <span className="text-xs font-mono font-light text-neutral-400 dark:text-neutral-500">
           STEP 04 / 04 · CATEGORIES
         </span>
       </div>
 
       {/* Header Section - 字体较小、纯粹利落 */}
-      <div className="bg-white rounded-2xl border border-neutral-200 p-4 sm:p-5 shadow-2xs text-left">
+      <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4 sm:p-5 shadow-2xs text-left transition-colors duration-200">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] font-mono font-light text-neutral-400 uppercase tracking-widest">
+          <span className="text-[10px] font-mono font-light text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">
             PAGE 04 · DIRECTORY
           </span>
-          <span className="text-[10px] font-mono font-light px-2 py-0.5 rounded bg-neutral-900 text-white uppercase">
+          <span className="text-[10px] font-mono font-light px-2 py-0.5 rounded bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 uppercase transition-colors">
             5 SECTIONS
           </span>
         </div>
-        <h1 className="text-lg sm:text-xl font-normal text-neutral-950 tracking-wider uppercase font-sans">
+        <h1 className="text-lg sm:text-xl font-normal text-neutral-950 dark:text-white tracking-wider uppercase font-sans transition-colors">
           CATEGORIES
         </h1>
       </div>
@@ -88,23 +88,23 @@ export const CategorySelectionView: React.FC<CategorySelectionViewProps> = ({
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-xl py-3 px-4 sm:px-5 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-50/60 shadow-2xs transition-all duration-200 group flex items-center justify-between text-left cursor-pointer"
+            className="bg-white dark:bg-neutral-900 rounded-xl py-3 px-4 sm:px-5 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-600 hover:bg-neutral-50/60 dark:hover:bg-neutral-800/60 shadow-2xs transition-all duration-200 group flex items-center justify-between text-left cursor-pointer"
           >
             <div className="flex items-center gap-3">
-              <span className="text-[11px] font-mono font-light text-neutral-400">
+              <span className="text-[11px] font-mono font-light text-neutral-400 dark:text-neutral-500">
                 {item.number}
               </span>
-              <h2 className="text-sm sm:text-base font-normal text-neutral-900 group-hover:text-neutral-950 transition-colors flex items-center gap-2">
+              <h2 className="text-sm sm:text-base font-normal text-neutral-900 dark:text-white group-hover:text-neutral-950 dark:group-hover:text-white transition-colors flex items-center gap-2">
                 <span>{item.titleCn}</span>
-                <span className="text-[11px] text-neutral-400 font-mono font-light uppercase">
+                <span className="text-[11px] text-neutral-400 dark:text-neutral-500 font-mono font-light uppercase">
                   / {item.titleEn}
                 </span>
               </h2>
             </div>
 
-            <div className="flex items-center gap-1 text-[11px] font-mono text-neutral-400 group-hover:text-neutral-950 transition-colors">
+            <div className="flex items-center gap-1 text-[11px] font-mono text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors">
               <span className="hidden sm:inline font-light">VIEW</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </div>
           </a>
         ))}
@@ -112,7 +112,7 @@ export const CategorySelectionView: React.FC<CategorySelectionViewProps> = ({
 
       {/* 板块最底下居中文案（字号小，颜色灰色）：要好好操心爱的人啊 / 眼泪为我流尽吧 */}
       <div className="pt-3 pb-1 text-center">
-        <p className="text-[11px] font-mono font-light text-neutral-400 tracking-widest leading-relaxed">
+        <p className="text-[11px] font-mono font-light text-neutral-400 dark:text-neutral-400 tracking-widest leading-relaxed">
           要好好操心爱的人啊<br />
           眼泪为我流尽吧
         </p>
@@ -122,7 +122,7 @@ export const CategorySelectionView: React.FC<CategorySelectionViewProps> = ({
       <div className="pt-2 text-center">
         <button
           onClick={onPrev}
-          className="px-6 py-2.5 rounded-xl border border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-800 font-mono font-light text-xs sm:text-sm inline-flex items-center gap-2 transition-colors cursor-pointer shadow-2xs"
+          className="px-6 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono font-light text-xs sm:text-sm inline-flex items-center gap-2 transition-colors cursor-pointer shadow-2xs"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK / 返回我的风格</span>
