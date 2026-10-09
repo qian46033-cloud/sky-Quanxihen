@@ -11,7 +11,7 @@ import { DataEditorModal } from './components/DataEditorModal';
 import { ImageModal } from './components/ImageModal';
 import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 
-const STORAGE_KEY = 'sky_profile_hen_v8';
+const STORAGE_KEY = 'sky_profile_hen_v9';
 const THEME_KEY = 'sky_profile_theme_mode';
 
 export default function App() {
@@ -49,15 +49,23 @@ export default function App() {
 
   const [profileData, setProfileData] = useState<ProfileData>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('sky_profile_hen_v8');
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (!parsed.siteTitle || parsed.siteTitle === 'HEN PROFILE ARCHIVE' || parsed.siteTitle === '光遇三恋资料馆') {
+          parsed.siteTitle = '犬系痕-您想我了';
+        }
+        return parsed;
       }
     } catch {
       // Fallback
     }
     return defaultProfileData;
   });
+
+  useEffect(() => {
+    document.title = profileData.siteTitle || '犬系痕-您想我了';
+  }, [profileData.siteTitle]);
 
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<{ isOpen: boolean; url: string; caption: string }>({

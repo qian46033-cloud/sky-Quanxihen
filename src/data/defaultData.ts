@@ -1,8 +1,8 @@
 import { ProfileData } from '../types';
 
 export const defaultProfileData: ProfileData = {
-  siteTitle: "HEN PROFILE ARCHIVE",
-  siteSubtitle: "犬系痕 · 光遇三恋个人档案",
+  siteTitle: "犬系痕-您想我了",
+  siteSubtitle: "犬系痕 · 您想我了",
   welcomeGreeting: "小姐，这是我的名片。",
   welcomeIntro: "19 LeH 金牛ENTP。",
   avatarUrl: "./white_lily_avatar_1791441945185.jpg",
