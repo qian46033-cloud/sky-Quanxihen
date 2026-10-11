@@ -25,7 +25,7 @@ export const StyleView: React.FC<StyleViewProps> = ({
   onPrev,
 }) => {
   const defaultStyleKeywords = [
-    '疯狗僭越',
+    '白话疯犬',
     '媚骨勾引',
     '暧昧缱绻',
     '轻浮牛郎',
@@ -34,15 +34,17 @@ export const StyleView: React.FC<StyleViewProps> = ({
   ];
 
   const styleKeywords = data.styleTags && data.styleTags.length > 0
-    ? (data.styleTags.includes('爱食掺揉') ? data.styleTags : [...data.styleTags, '爱食掺揉'])
+    ? data.styleTags
+        .map(tag => tag === '疯狗僭越' ? '白话疯犬' : tag)
+        .concat(data.styleTags.includes('爱食掺揉') ? [] : ['爱食掺揉'])
     : defaultStyleKeywords;
 
   const scenarios: ScenarioItem[] = [
     {
       number: "01",
-      styleName: "疯狗僭越",
+      styleName: "白话疯犬",
       tagEn: "OVERSTEP & DOMINANCE",
-      quote: "这种程度就让您觉得被冒犯了吗，主人？",
+      quote: "敢把我赶出你的人生就等着被狗爪子扇吧",
     },
     {
       number: "02",

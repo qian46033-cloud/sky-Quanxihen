@@ -11,7 +11,7 @@ import { DataEditorModal } from './components/DataEditorModal';
 import { ImageModal } from './components/ImageModal';
 import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 
-const STORAGE_KEY = 'sky_profile_hen_v10';
+const STORAGE_KEY = 'sky_profile_hen_v11';
 const THEME_KEY = 'sky_profile_theme_mode';
 
 export default function App() {
@@ -49,14 +49,30 @@ export default function App() {
 
   const [profileData, setProfileData] = useState<ProfileData>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('sky_profile_hen_v9') || localStorage.getItem('sky_profile_hen_v8');
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('sky_profile_hen_v10') || localStorage.getItem('sky_profile_hen_v9') || localStorage.getItem('sky_profile_hen_v8');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (!parsed.siteTitle || parsed.siteTitle === 'HEN PROFILE ARCHIVE' || parsed.siteTitle === '光遇三恋资料馆') {
           parsed.siteTitle = '犬系痕-您想我了';
         }
-        if (parsed.styleTags && Array.isArray(parsed.styleTags) && !parsed.styleTags.includes('爱食掺揉')) {
-          parsed.styleTags.push('爱食掺揉');
+        if (parsed.styleTags && Array.isArray(parsed.styleTags)) {
+          parsed.styleTags = parsed.styleTags.map((tag: string) => tag === '疯狗僭越' ? '白话疯犬' : tag);
+          if (!parsed.styleTags.includes('爱食掺揉')) {
+            parsed.styleTags.push('爱食掺揉');
+          }
+          if (!parsed.styleTags.includes('白话疯犬')) {
+            parsed.styleTags.unshift('白话疯犬');
+          }
+        }
+        if (parsed.styleDescription && typeof parsed.styleDescription === 'string') {
+          parsed.styleDescription = parsed.styleDescription.replace('疯狗僭越', '白话疯犬');
+        }
+        if (parsed.styleHighlights && Array.isArray(parsed.styleHighlights)) {
+          parsed.styleHighlights.forEach((item: { title?: string }) => {
+            if (item.title && item.title.includes('疯狗僭越')) {
+              item.title = item.title.replace('疯狗僭越', '白话疯犬');
+            }
+          });
         }
         return parsed;
       }

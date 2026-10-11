@@ -25,17 +25,17 @@ export const defaultProfileData: ProfileData = {
     onlineTime: "工作日18:00-23:00  周末随缘",
   },
   styleTags: [
-    "疯狗僭越",
+    "白话疯犬",
     "媚骨勾引",
     "暧昧缱绻",
     "轻浮牛郎",
     "阴湿艳鬼",
     "爱食掺揉"
   ],
-  styleDescription: "疯狗僭越 媚骨勾引 暧昧缱绻 轻浮牛郎 阴湿艳鬼 爱食掺揉",
+  styleDescription: "白话疯犬 媚骨勾引 暧昧缱绻 轻浮牛郎 阴湿艳鬼 爱食掺揉",
   styleHighlights: [
     {
-      title: "疯狗僭越 · 独占与边界试探",
+      title: "白话疯犬 · 独占与边界试探",
       description: "不满足于浅尝辄止的礼貌。在被允许的范围里，以极具攻击性与占有欲的姿态，打破平淡的安全距离。",
       badge: "STYLE 01"
     },
