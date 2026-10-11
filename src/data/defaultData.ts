@@ -29,9 +29,10 @@ export const defaultProfileData: ProfileData = {
     "媚骨勾引",
     "暧昧缱绻",
     "轻浮牛郎",
-    "阴湿艳鬼"
+    "阴湿艳鬼",
+    "爱食掺揉"
   ],
-  styleDescription: "疯狗僭越 媚骨勾引 暧昧缱绻 轻浮牛郎 阴湿艳鬼",
+  styleDescription: "疯狗僭越 媚骨勾引 暧昧缱绻 轻浮牛郎 阴湿艳鬼 爱食掺揉",
   styleHighlights: [
     {
       title: "疯狗僭越 · 独占与边界试探",
@@ -57,6 +58,11 @@ export const defaultProfileData: ProfileData = {
       title: "阴湿艳鬼 · 侵蚀入骨的执念",
       description: "藏在暗处的凝视与纠缠。如附骨之疽般冰冷而艳烈，一旦招惹，便再难全身而退。",
       badge: "STYLE 05"
+    },
+    {
+      title: "爱食掺揉 · 食欲与爱欲交织",
+      description: "食欲是爱欲的外化。用口腹之欲裹挟情感缠绵，分寸在推杯换盏与唇齿相依间悄然失守。",
+      badge: "STYLE 06"
     }
   ],
   screenshots: [

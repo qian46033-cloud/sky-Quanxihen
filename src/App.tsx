@@ -11,7 +11,7 @@ import { DataEditorModal } from './components/DataEditorModal';
 import { ImageModal } from './components/ImageModal';
 import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 
-const STORAGE_KEY = 'sky_profile_hen_v9';
+const STORAGE_KEY = 'sky_profile_hen_v10';
 const THEME_KEY = 'sky_profile_theme_mode';
 
 export default function App() {
@@ -49,11 +49,14 @@ export default function App() {
 
   const [profileData, setProfileData] = useState<ProfileData>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('sky_profile_hen_v8');
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('sky_profile_hen_v9') || localStorage.getItem('sky_profile_hen_v8');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (!parsed.siteTitle || parsed.siteTitle === 'HEN PROFILE ARCHIVE' || parsed.siteTitle === '光遇三恋资料馆') {
           parsed.siteTitle = '犬系痕-您想我了';
+        }
+        if (parsed.styleTags && Array.isArray(parsed.styleTags) && !parsed.styleTags.includes('爱食掺揉')) {
+          parsed.styleTags.push('爱食掺揉');
         }
         return parsed;
       }

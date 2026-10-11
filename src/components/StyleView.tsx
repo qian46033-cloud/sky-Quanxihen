@@ -24,13 +24,18 @@ export const StyleView: React.FC<StyleViewProps> = ({
   onNext,
   onPrev,
 }) => {
-  const styleKeywords = [
+  const defaultStyleKeywords = [
     '疯狗僭越',
     '媚骨勾引',
     '暧昧缱绻',
     '轻浮牛郎',
-    '阴湿艳鬼'
+    '阴湿艳鬼',
+    '爱食掺揉'
   ];
+
+  const styleKeywords = data.styleTags && data.styleTags.length > 0
+    ? (data.styleTags.includes('爱食掺揉') ? data.styleTags : [...data.styleTags, '爱食掺揉'])
+    : defaultStyleKeywords;
 
   const scenarios: ScenarioItem[] = [
     {
@@ -62,6 +67,12 @@ export const StyleView: React.FC<StyleViewProps> = ({
       styleName: "阴湿艳鬼",
       tagEn: "OBSESSION & ENTWINED",
       quote: "从背后环住你的感觉真好啊，你该被我的痴缠扰一辈子的",
+    },
+    {
+      number: "06",
+      styleName: "爱食掺揉",
+      tagEn: "APPETITE & DESIRE",
+      quote: "食欲是爱欲的外化",
     },
   ];
 
